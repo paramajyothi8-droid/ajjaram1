@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ABS Product Details</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(
+180deg,
+#F7E7C6 0%,
+#F2D9A6 50%,
+#E6C07B 100%
+);
+min-height:100vh;
+padding:20px;
+}
+
+.product-page{
+max-width:1200px;
+margin:40px auto;
+padding:20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+background:white;
+border-radius:20px;
+}
+
+.product-image img{
+width:100%;
+border-radius:20px;
+}
+
+.product-info h1{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.rating{
+color:#f4b400;
+margin-bottom:15px;
+}
+
+.price{
+font-size:32px;
+font-weight:700;
+color:#B8860B;
+margin-bottom:10px;
+}
+
+.old-price{
+text-decoration:line-through;
+color:#999;
+font-size:20px;
+}
+
+.save{
+color:green;
+font-weight:600;
+margin:10px 0;
+}
+
+.offer-box{
+background:#FFF7E3;
+padding:15px;
+border-radius:10px;
+margin:20px 0;
+}
+
+.qty-box{
+display:flex;
+align-items:center;
+gap:15px;
+margin:20px 0;
+}
+
+.qty-box button{
+width:40px;
+height:40px;
+border:none;
+background:#ddd;
+font-size:20px;
+cursor:pointer;
+}
+
+.qty-box input{
+width:60px;
+text-align:center;
+height:40px;
+}
+
+.buy-btn,
+.cart-btn{
+width:100%;
+padding:16px;
+border:none;
+margin-top:15px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+}
+
+.cart-btn{
+background:#B8860B;
+color:white;
+}
+
+.buy-btn{
+background:#222;
+color:white;
+}
+
+.details{
+margin-top:25px;
+line-height:2;
+}
+
+@media(max-width:900px){
+
+.product-page{
+grid-template-columns:1fr;
+}
+
+.product-info h1{
+font-size:24px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="product-page">
+
+<div class="product-image">
+<img id="productImage" src="" alt="Product">
+</div>
+
+<div class="product-info">
+
+<h1 id="productName"></h1>
+
+<div class="rating">
+★★★★★ (47 Reviews)
+</div>
+
+<div class="price" id="productPrice"></div>
+
+<div class="old-price">
+₹3,999
+</div>
+
+<div class="save">
+YOU SAVE 50%
+</div>
+
+<div class="offer-box">
+<b>BEST OFFERS FOR YOU</b><br>
+Extra 15% OFF Above ₹7999<br>
+Use Code: ABS15
+</div>
+
+<div class="qty-box">
+<button onclick="decreaseQty()">-</button>
+<input type="text" value="1" id="qty">
+<button onclick="increaseQty()">+</button>
+</div>
+
+<div class="details">
+
+<p><b>Material:</b> Premium Brass</p>
+
+<p><b>Made In:</b> India</p>
+
+<p><b>Shipping:</b> Free Shipping</p>
+
+<p><b>Dispatch:</b> Within 24 Hours</p>
+
+<p><b>Category:</b> Brass Collection</p>
+
+</div>
+
+<button class="cart-btn">
+ADD TO CART
+</button>
+
+<button class="buy-btn">
+BUY NOW
+</button>
+
+</div>
+
+</div>
+<script>
+
+const products = {
+
+ganesha:{
+name:"Brass Ganesha Idol",
+price:"1999",
+image:"images/ganeshaidol.jpg"
+},
+
+diya:{
+name:"Brass Diya Set",
+price:"899",
+image:"images/diya set.jpg"
+},
+
+bell:{
+name:"Brass Bell",
+price:"699",
+image:"images/brassbell1.webp"
+},
+
+bowl:{
+name:"Brass Bowl Set",
+price:"1299",
+image:"images/bowlsset.jpg"
+},
+
+thali:{
+name:"Brass Pooja Thali",
+price:"1499",
+image:"images/brasspojjathali.webp"
+},
+
+kalash:{
+name:"Brass Kalash",
+price:"799",
+image:"images/kalash.jpg"
+},
+
+urli:{
+name:"Brass Decorative Urli",
+price:"2499",
+image:"images/urli.jpg"
+},
+
+lakshmi:{
+name:"Brass Lakshmi Idol",
+price:"2299",
+image:"images/laksmi.jpg"
+}
+
+};
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+const product = products[id];
+
+if(product){
+
+document.getElementById("productName").innerHTML =
+product.name;
+
+document.getElementById("productPrice").innerHTML =
+"₹" + product.price;
+
+document.getElementById("productImage").src =
+product.image;
+
+document.getElementById("productImage").alt =
+product.name;
+
+}else{
+
+document.body.innerHTML =
+"<h1 style='text-align:center;margin-top:100px'>Product Not Found</h1>";
+
+}
+
+function increaseQty(){
+
+let qty=document.getElementById("qty");
+
+qty.value=parseInt(qty.value)+1;
+
+}
+
+function decreaseQty(){
+
+let qty=document.getElementById("qty");
+
+if(parseInt(qty.value)>1){
+
+qty.value=parseInt(qty.value)-1;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ABS Wishlist</title>
+
+<style>
+
+body{
+font-family:Poppins,sans-serif;
+background:#f5f5f5;
+padding:30px;
+}
+
+h1{
+text-align:center;
+color:#8A632A;
+}
+
+.wishlist-box{
+background:white;
+padding:15px;
+margin-bottom:15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+}
+
+button{
+background:red;
+color:white;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+border-radius:5px;
+}
+
+.home-btn{
+background:#B8860B;
+text-decoration:none;
+color:white;
+padding:10px 20px;
+border-radius:25px;
+display:inline-block;
+margin-bottom:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="home-btn">
+← Home
+</a>
+
+<h1>My Wishlist</h1>
+
+<div id="wishlistContainer"></div>
+
+<script>
+
+let wishlistItems =
+JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+let output = "";
+
+if(wishlistItems.length === 0){
+
+output = "<h3>Your Wishlist Is Empty</h3>";
+
+}else{
+
+wishlistItems.forEach((item,index)=>{
+
+output += `
+
+<div class="wishlist-box">
+
+<div style="
+display:flex;
+align-items:center;
+gap:15px;
+">
+
+<img src="${item.image}"
+style="
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:10px;
+">
+
+<div>
+
+<h3>${item.name}</h3>
+
+<p style="
+color:#B8860B;
+font-weight:600;
+">
+${item.price}
+</p>
+
+</div>
+
+</div>
+
+<div style="
+display:flex;
+gap:10px;
+">
+
+<button
+style="background:#B8860B;"
+onclick="buyNow('${item.name}')">
+
+Buy Now
+
+</button>
+
+<button
+onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+document.getElementById("wishlistContainer")
+.innerHTML = output;
+
+function removeItem(index){
+
+wishlistItems.splice(index,1);
+
+localStorage.setItem(
+"wishlistItems",
+JSON.stringify(wishlistItems)
+);
+
+location.reload();
+
+}
+
+function buyNow(product){
+
+alert("Proceeding to checkout for " + product);
+
+}
+
+</script>
+</body>
+</html>

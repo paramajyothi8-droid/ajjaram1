@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABS - Ajjaram Brass Sourcing</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+:root{
+    --brass:#C89B3C;
+    --dark-brass:#8A632A;
+    --charcoal:#3D2B1F;
+    --ivory:#F6EFE4;
+    --white:#fff;
+}
+
+body{
+    background:linear-gradient(
+    180deg,
+    #F7E7C6 0%,
+    #F2D9A6 50%,
+    #E6C07B 100%
+    );
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:linear-gradient(
+    135deg,
+    #4A3214,
+    #8A632A,
+    #C89B3C
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 5%;
+
+    border-bottom:3px solid #D4AF37;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+.navbar{
+    position:relative;
+    z-index:1000;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:50%;
+    border:2px solid var(--brass);
+}
+
+.logo h2{
+    color:#FFF8E7;
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#FFF8E7;
+    font-size:15px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#FFE082;
+}
+
+.icons{
+    display:flex;
+    gap:18px;
+    margin-left:auto;
+}
+
+.icons i{
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.icons i:hover{
+    color:#FFE082;
+}
+
+.menu-btn{
+    display:none;
+    color:white;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    height:85vh;
+    background:
+    linear-gradient(rgba(0,0,0,.45),
+    rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1400");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    background:var(--brass);
+    color:white;
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.hero-btn:hover{
+    background:var(--dark-brass);
+}
+
+.slider-section{
+position:relative;
+overflow:hidden;
+
+margin:15px 15px 40px;
+
+border-radius:40px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.slider{
+position:relative;
+width:100%;
+height:500px;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+transition:1s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+border-radius:40px;
+}
+
+@media(max-width:900px){
+
+.slider{
+height:250px;
+}
+
+.slider-section{
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+}
+.slider-section{
+margin:10px;
+border-radius:25px;
+}
+
+.slide img{
+border-radius:25px;
+}
+
+.slider{
+height:280px;
+}
+
+}
+
+/* CATEGORY */
+
+.categories{
+    padding:40px 5%;
+    background:linear-gradient(
+        180deg,
+        #F8E8C4,
+        #F3D89B
+    );
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:var(--dark-brass);
+    font-size:35px;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.category{
+    min-width:160px;
+    text-align:center;
+    flex-shrink:0;
+    scroll-snap-align:center;
+}
+.category-scroll{
+    -webkit-overflow-scrolling:touch;
+}
+
+.products{
+    padding:80px 5%;
+    background:linear-gradient(
+        180deg,
+        #F8E8C4,
+        #F3D89B
+    );
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.product-card{
+background:white;
+border:1px solid rgba(212,175,55,.25);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(212,175,55,.25);
+}
+
+.product-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.product-card h3{
+padding:15px;
+font-size:18px;
+}
+
+.price{
+padding:0 15px;
+color:var(--brass);
+font-weight:700;
+font-size:20px;
+}
+
+.product-buttons{
+display:flex;
+justify-content:space-between;
+padding:15px;
+}
+
+.wishlist-btn{
+width:45px;
+height:45px;
+border:none;
+background:#f4f4f4;
+border-radius:50%;
+cursor:pointer;
+}
+
+.cart-btn{
+border:none;
+padding:12px 20px;
+background:var(--brass);
+color:white;
+border-radius:25px;
+cursor:pointer;
+}
+
+.icon-box{
+position:relative;
+}
+
+.icon-box span{
+position:absolute;
+top:-10px;
+right:-12px;
+background:red;
+color:white;
+font-size:11px;
+width:18px;
+height:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+}
+
+@media(max-width:900px){
+
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.product-card img{
+height:180px;
+}
+
+.product-card h3{
+font-size:14px;
+}
+
+.price{
+font-size:16px;
+}
+
+.cart-btn{
+padding:8px 12px;
+font-size:12px;
+}
+
+}
+
+.circle{
+    width:150px;
+    height:150px;
+    margin:auto;
+    border-radius:50%;
+    overflow:hidden;
+    border:5px solid var(--brass);
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.category h4{
+    margin-top:15px;
+    color:#333;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.nav-links{
+    display:none;
+}
+
+.menu-btn{
+    display:block;
+    margin-right:10px;
+}
+
+.navbar{
+    padding:12px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    margin-right:auto;
+}
+
+.logo img{
+    width:40px;
+    height:40px;
+}
+
+.logo h2{
+    font-size:22px;
+}
+
+}
+
+.hero-content h1{
+    font-size:36px;
+}
+
+.hero-content p{
+    font-size:16px;
+}
+
+.category-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.circle{
+    width:120px;
+    height:120px;
+}
+.search-box{
+    background:white;
+    padding:12px 18px;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    width:300px;
+}
+
+.search-box input{
+border:none;
+outline:none;
+width:180px;
+}
+
+/* show the popup when `.show` is toggled */
+.search-popup.show{
+    display:flex;
+}
+.close-search{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:22px;
+    color:white;
+    cursor:pointer;
+}
+
+
+.login-popup{
+
+position:absolute;
+
+top:55px;
+
+right:0;
+
+width:340px;
+
+background:white;
+
+border-radius:15px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+display:none;
+
+z-index:99999;
+
+padding:20px;
+
+}
+
+.login-box{
+background:white;
+padding:30px;
+border-radius:20px;
+width:350px;
+text-align:center;
+position:relative;
+}
+
+.close-btn{
+position:absolute;
+top:10px;
+right:15px;
+font-size:25px;
+cursor:pointer;
+}
+
+.google-btn,
+.facebook-btn{
+width:100%;
+padding:14px;
+margin-top:15px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:15px;
+}
+
+.google-btn{
+background:#DB4437;
+color:white;
+}
+
+.facebook-btn{
+background:#1877F2;
+color:white;
+}
+.login-input{
+
+width:100%;
+
+padding:12px;
+
+margin-top:12px;
+
+border:1px solid #ddd;
+
+border-radius:8px;
+
+outline:none;
+
+}
+
+.login-btn{
+
+width:100%;
+
+padding:12px;
+
+margin-top:15px;
+
+border:none;
+
+background:#B8860B;
+
+color:white;
+
+font-weight:600;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+.or-text{
+
+text-align:center;
+
+margin:15px 0;
+
+color:#777;
+
+}
+
+.create-account{
+
+text-align:center;
+
+margin-top:15px;
+
+}
+
+.create-account a{
+
+color:#B8860B;
+
+font-weight:600;
+
+text-decoration:none;
+
+}
+
+
+footer{
+background:linear-gradient(
+135deg,
+#3D2B1F,
+#8A632A
+);
+color:white;
+padding:20px 5% 15px;
+margin-top:40px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+}
+
+.footer-container h3{
+color:var(--brass);
+margin-bottom:15px;
+}
+
+.footer-container p{
+margin-bottom:10px;
+}
+.footer-container p{
+margin-bottom:5px;
+font-size:13px;
+line-height:1.4;
+}
+.footer-container a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.footer-container a:hover{
+color:#D4AF37;
+padding-left:5px;
+}
+
+.copyright{
+text-align:center;
+margin-top:15px;
+color:#aaa;
+font-size:12px;
+}
+
+@media(max-width:900px){
+
+.footer-container{
+grid-template-columns:1fr;
+}
+footer p{
+margin-bottom:6px;
+font-size:14px;
+}
+.search-box{
+display:none;
+}
+
+}
+.category-scroll{
+    display:flex;
+    flex-direction:row;
+    gap:25px;
+    overflow-x:auto;
+    white-space:nowrap;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    padding:20px 10px;
+}
+
+/* hide scrollbar */
+.category-scroll::-webkit-scrollbar{
+    display:none;
+}
+
+/* each category box */
+.category{
+    min-width:160px;
+    text-align:center;
+    flex-shrink:0;
+}
+
+/* circle image */
+.circle{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    overflow:hidden;
+    border:4px solid var(--brass);
+    margin:auto;
+}
+
+.circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* only mobile behavior */
+@media(max-width:900px){
+    #moreText{
+        display:none;
+    }
+
+    /* PRODUCT IMAGE SIZE FIX */
+    .img-box{
+        height:180px;
+    }
+
+    /* PRODUCT TITLE */
+    .product-card h3{
+        font-size:14px;
+        padding:10px 12px 5px;
+    }
+
+    /* PRICE */
+    .price{
+        font-size:14px;
+    }
+
+    /* CART BUTTON */
+
+.cart-btn{
+    width:90%;
+    margin:15px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:14px 20px;
+
+    border:none;
+
+    border-radius:4px;
+
+    background:linear-gradient(
+        135deg,
+        #B8860B,
+        #D4AF37
+    );
+
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+    /* ICON SIZE ADJUST */
+    .icons-overlay i{
+        padding:7px;
+        font-size:12px;
+    }
+
+    /* GRID CONTROL */
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+
+}
+
+.search-icon{
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.icons{
+    position:relative;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* SEARCH DROPDOWN */
+.search-popup{
+
+position:absolute;
+
+top:55px;
+
+right:0;
+
+left:auto;
+
+transform:none;
+
+width:420px;
+
+background:white;
+
+border-radius:15px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+padding:15px;
+
+display:none;
+
+flex-direction:column;
+
+gap:10px;
+
+z-index:99999;
+
+}
+.search-results{
+
+max-height:350px;
+
+overflow-y:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+.search-item{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:10px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.search-item:hover{
+
+background:#f5f5f5;
+
+}
+.search-item img{
+
+width:55px;
+
+height:55px;
+
+object-fit:cover;
+
+border-radius:8px;
+
+}
+.search-info{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.search-info h4{
+
+font-size:14px;
+
+color:#333;
+
+}
+
+.search-info p{
+
+font-size:13px;
+
+color:#B8860B;
+
+font-weight:600;
+
+}
+
+/* show popup */
+.search-popup.show{
+    display:flex;
+}
+
+/* INNER SEARCH BOX */
+.search-box{
+    position:relative;
+    background:#f7f7f7;
+    width:100%;
+    padding:12px 14px 12px 44px;
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid #e0e0e0;
+}
+
+.search-box .search-icon-inner{
+    position:absolute;
+    left:14px;
+    color:#888;
+    font-size:18px;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:15px;
+    padding-left:28px;
+    padding-right:14px;
+}
+
+/* CLOSE ICON */
+.close-search{
+    position:absolute;
+    top:16px;
+    right:16px;
+    font-size:16px;
+    color:#333;
+    background:white;
+    border:none;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    cursor:pointer;
+}
+
+
+
+
+.product-card{
+    background:#FFFFFF;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:0.3s;
+
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+/* IMAGE CONTAINER */
+.img-box{
+    position:relative;
+    width:100%;
+    height:260px;
+    overflow:hidden;
+}
+
+.img-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.3s;
+}
+
+.product-card:hover .img-box img{
+    transform:scale(1.05);
+}
+
+/* ICONS ON IMAGE */
+.icons-overlay{
+    position:absolute;
+    top:12px;
+    right:12px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.icons-overlay i{
+    background:white;
+    color:#333;
+    padding:10px;
+    border-radius:50%;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.icons-overlay i:hover{
+    background:var(--brass);
+    color:white;
+}
+
+/* TEXT */
+.product-card h3{
+    padding:12px 15px 5px;
+    font-size:16px;
+}
+
+.price{
+    padding:0 15px;
+    color:var(--brass);
+    font-weight:700;
+}
+
+/* ADD TO CART */
+.cart-btn{
+    width:90%;
+    margin:15px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:14px 20px;
+
+    border:none;
+
+    /* Square Button */
+    border-radius:4px;
+
+    background:linear-gradient(
+        135deg,
+        #B8860B,
+        #D4AF37
+    );
+
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cart-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(212,175,55,.4);
+}
+
+
+.mega-menu-item{
+position:relative;
+}
+
+.mega-menu{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+width:700px;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+
+z-index:9999;
+}
+
+.mega-column{
+display:flex;
+flex-direction:column;
+}
+
+.mega-column h4{
+color:var(--brass);
+margin-bottom:10px;
+font-size:16px;
+}
+
+.mega-column a{
+color:#333;
+padding:6px 0;
+text-decoration:none;
+}
+
+.mega-column a:hover{
+color:var(--brass);
+}
+
+.mega-menu-item:hover .mega-menu{
+display:grid;
+}
+.mobile-sidebar{
+    position:fixed;
+    top:0;
+    left:-320px;
+    width:300px;
+    height:100%;
+    background:#fff;
+    z-index:99999;
+    overflow-y:auto;
+    transition:0.4s;
+    box-shadow:5px 0 20px rgba(0,0,0,.15);
+}
+
+.mobile-sidebar.active{
+    left:0;
+}
+
+.mobile-sidebar-header{
+    background:var(--brass);
+    color:white;
+    padding:18px;
+    font-size:20px;
+    font-weight:600;
+}
+
+.mobile-sidebar a{
+    display:block;
+    padding:15px 20px;
+    text-decoration:none;
+    color:#333;
+    border-bottom:1px solid #eee;
+}
+.mobile-menu{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:320px;
+    height:100%;
+    background:#fff;
+    z-index:99999;
+    transition:0.4s;
+    overflow-y:auto;
+}
+
+.mobile-menu.active{
+    left:0;
+}
+
+.menu-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    background:#1E1E1E;
+    color:white;
+}
+
+.close-menu{
+    font-size:24px;
+    cursor:pointer;
+}
+
+.menu-category{
+    padding:15px;
+}
+
+.cat-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+}
+
+.cat-item img{
+    width:55px;
+    height:55px;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.cat-item span{
+    font-size:15px;
+    font-weight:500;
+}
+.cat-item{
+display:flex;
+align-items:center;
+gap:15px;
+padding:12px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+}
+
+.cat-item i{
+margin-left:auto;
+color:#888;
+}
+
+.submenu{
+display:none;
+padding:15px;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+overflow-y:auto;
+}
+
+.submenu.active{
+display:block;
+}
+
+.submenu-header{
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px;
+background:#f5f5f5;
+font-weight:600;
+}
+
+.submenu-header i{
+cursor:pointer;
+font-size:18px;
+}
+
+.sub-item{
+display:flex;
+align-items:center;
+gap:15px;
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.sub-item img{
+width:55px;
+height:55px;
+border-radius:8px;
+object-fit:cover;
+}
+.products{
+    display:block !important;
+}
+
+.product-grid{
+    width:100%;
+}
+
+.product-card{
+    width:100%;
+}
+html{
+scroll-behavior:smooth;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+/* MOBILE HEADER IMAGE BIGGER */
+@media (max-width:900px){
+
+    .brass-header{
+        width:100%;
+        height:auto !important;
+        border-radius:30px;
+        margin:10px auto;
+    }
+
+    .brass-header img{
+        width:100%;
+        height:auto;
+        display:block;
+        object-fit:contain;
+    }
+
+}
+@media(max-width:900px){
+
+.search-popup{
+
+position:fixed;
+
+top:70px;
+
+left:10px;
+
+right:10px;
+
+width:auto;
+
+transform:none;
+
+}
+
+
+.search-item img{
+
+width:45px;
+height:45px;
+
+}
+
+}
+/* ✅ FINAL NAVBAR LOGO POSITION FIX */
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+    padding:14px 5%;
+}
+
+.logo{
+    order:1;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-shrink:0;
+    margin-left:8px;
+}
+
+.logo img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #D4AF37;
+    background:#fff;
+    padding:2px;
+    box-shadow:0 4px 14px rgba(0,0,0,.22);
+}
+
+.logo h2{
+    color:#FFF8E7;
+    font-size:29px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    order:2;
+}
+
+.icons{
+    order:3;
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+}
+
+.menu-btn{
+    order:4;
+}
+
+@media(max-width:900px){
+
+    .navbar{
+        padding:12px 18px;
+        gap:12px;
+    }
+
+    .logo{
+        order:1;
+        margin-left:0;
+        margin-right:auto;
+    }
+
+    .logo img{
+        width:46px;
+        height:46px;
+        border-radius:50%;
+    }
+
+    .logo h2{
+        font-size:24px;
+    }
+
+    .icons{
+        order:2;
+        margin-left:0;
+        gap:13px;
+    }
+
+    .menu-btn{
+        order:3;
+        width:42px;
+        height:42px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-right:0;
+        background:rgba(255,255,255,.14);
+    }
+
+}
+
+
+</style>
+</head>
+<body id="top">
+    <div class="mobile-sidebar" id="mobileSidebar">
+
+<div class="mobile-sidebar-header">
+ABS Categories
+</div>
+
+<a href="#">Brass Idols</a>
+<a href="#">Pooja Items</a>
+<a href="#">Kitchen Brass</a>
+<a href="#">Brass Decor</a>
+<a href="#">Brass Gifts</a>
+<a href="#">Antique Brass</a>
+<a href="#">Brass Diyas</a>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="menu-btn" onclick="openMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+
+<div class="logo">
+<img src="images/brass icon.jpg" alt="ABS">
+<h2>ABS</h2>
+</div>
+
+<div class="nav-links">
+
+<div class="mega-menu-item">
+
+<a href="#">Brass Idols</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>God Idols</h4>
+<a href="#">Brass Ganesha Idol</a>
+<a href="#">Brass Lakshmi Idol</a>
+<a href="#">Brass Krishna Idol</a>
+<a href="#">Brass Shiva Idol</a>
+<a href="#">Brass Hanuman Idol</a>
+</div>
+
+<div class="mega-column">
+<h4>Temple Collection</h4>
+<a href="#">Brass Buddha Idol</a>
+<a href="#">Brass Durga Idol</a>
+<a href="#">Brass Saraswati Idol</a>
+<a href="#">Brass Nandi</a>
+</div>
+
+</div>
+</div>
+
+<div class="mega-menu-item">
+
+<a href="#">Pooja Items</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>Pooja Essentials</h4>
+<a href="#">Brass Diyas</a>
+<a href="#">Brass Bells</a>
+<a href="#">Brass Kalash</a>
+<a href="#">Brass Pooja Thali</a>
+</div>
+
+<div class="mega-column">
+<h4>Temple Accessories</h4>
+<a href="#">Brass Deepam</a>
+<a href="#">Brass Aarti Lamp</a>
+<a href="#">Brass Panchapatra</a>
+</div>
+
+</div>
+</div>
+
+<div class="mega-menu-item">
+
+<a href="#">Kitchen Brass</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>Dining</h4>
+<a href="#">Brass Bowl Set</a>
+<a href="#">Brass Plates</a>
+<a href="#">Brass Tumblers</a>
+<a href="#">Brass Water Pot</a>
+</div>
+
+<div class="mega-column">
+<h4>Kitchen Collection</h4>
+<a href="#">Brass Tea Pot</a>
+<a href="#">Brass Serving Tray</a>
+<a href="#">Brass Containers</a>
+</div>
+
+</div>
+</div>
+<div class="mega-menu-item">
+
+<a href="#">Brass Decor</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>Home Decor</h4>
+<a href="#">Brass Urli</a>
+<a href="#">Brass Flower Vase</a>
+<a href="#">Brass Wall Hanging</a>
+<a href="#">Brass Candle Stand</a>
+</div>
+
+<div class="mega-column">
+<h4>Luxury Decor</h4>
+<a href="#">Brass Showpiece</a>
+<a href="#">Brass Elephant</a>
+<a href="#">Brass Peacock</a>
+<a href="#">Brass Table Decor</a>
+</div>
+
+</div>
+
+</div>
+<div class="mega-menu-item">
+
+<a href="#">Brass Gifts</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>Gift Collection</h4>
+<a href="#">Brass Gift Box</a>
+<a href="#">Festival Gifts</a>
+<a href="#">Wedding Gifts</a>
+<a href="#">Corporate Gifts</a>
+</div>
+
+<div class="mega-column">
+<h4>Popular Gifts</h4>
+<a href="#">Brass Idol Set</a>
+<a href="#">Brass Diya Set</a>
+<a href="#">Brass Bowl Set</a>
+</div>
+
+</div>
+
+</div>
+<div class="mega-menu-item">
+
+<a href="#">Antique Brass</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>Antique Collection</h4>
+<a href="#">Antique Brass Idol</a>
+<a href="#">Antique Brass Bell</a>
+<a href="#">Antique Brass Urli</a>
+<a href="#">Antique Brass Lamp</a>
+</div>
+
+<div class="mega-column">
+<h4>Vintage Decor</h4>
+<a href="#">Vintage Brass Clock</a>
+<a href="#">Vintage Brass Pot</a>
+<a href="#">Vintage Brass Decor</a>
+</div>
+
+</div>
+
+</div>
+<div class="mega-menu-item">
+
+<a href="#">Brass Diyas</a>
+
+<div class="mega-menu">
+
+<div class="mega-column">
+<h4>Diya Collection</h4>
+<a href="#">Single Brass Diya</a>
+<a href="#">Akhand Diya</a>
+<a href="#">Hanging Diya</a>
+<a href="#">Peacock Diya</a>
+</div>
+
+<div class="mega-column">
+<h4>Festival Diyas</h4>
+<a href="#">Diwali Diya Set</a>
+<a href="#">Temple Diya</a>
+<a href="#">Designer Diya</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="icons">
+
+<div class="search-icon" onclick="toggleSearch()">
+    <i class="fas fa-search"></i>
+</div>
+
+<!-- ✅ SEARCH OVERLAY -->
+<div class="search-popup" id="searchPopup">
+
+<div class="search-box">
+<i class="fas fa-search search-icon-inner"></i>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Brass Products..."
+onkeyup="searchProducts()">
+
+</div>
+
+<button class="close-search" onclick="toggleSearch()">
+<i class="fas fa-times"></i>
+</button>
+
+<div class="search-results" id="searchResults"></div>
+
+</div>
+
+<div class="user-area">
+
+<i class="fas fa-user" onclick="openLogin()"></i>
+
+</div>
+
+<div class="icon-box">
+<a href="wishlist.html">
+<i class="fas fa-heart" onclick="addToWishlist('Brass Ganesha Idol',1999,'images/ganeshaidol.jpg')"></i>
+</a>
+<span id="wishlistCount">0</span>
+</div>
+
+<div class="icon-box">
+<a href="cart.html">
+<i class="fas fa-shopping-cart"></i>
+</a>
+<span id="cartCount">0</span>
+</div>
+
+
+</div>
+
+</div>
+
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="menu-header">
+        <h2>ABS</h2>
+
+        <span class="close-menu" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
+        </span>
+    </div>
+
+  <div class="menu-category">
+
+<!-- Brass Idols -->
+<div class="cat-item" onclick="showSubMenu('idolMenu')">
+<img src="images/brassidol.jpg">
+<span>Brass Idols</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<!-- Pooja Items -->
+<div class="cat-item" onclick="showSubMenu('poojaMenu')">
+<img src="images/poojaitems.jpg">
+<span>Pooja Items</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<!-- Kitchen Brass -->
+<div class="cat-item" onclick="showSubMenu('kitchenMenu')">
+<img src="images/kitchen bras.jpg">
+<span>Kitchen Brass</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<!-- Brass Decor -->
+<div class="cat-item" onclick="showSubMenu('decorMenu')">
+<img src="images/homedecor.jpg">
+<span>Brass Decor</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<!-- Brass Gifts -->
+<div class="cat-item" onclick="showSubMenu('giftMenu')">
+<img src="images/brassgifts.jpg">
+<span>Brass Gifts</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+<!-- Brass Diyas -->
+<div class="cat-item" onclick="showSubMenu('diyaMenu')">
+<img src="images/diyas.jpg">
+<span>Brass Diyas</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+</div>
+    <!-- SUB MENU -->
+
+<div class="submenu" id="idolMenu">
+
+<div class="submenu-header">
+
+<i class="fas fa-arrow-left"
+onclick="backMenu()"></i>
+
+<h3>Brass Idols</h3>
+
+</div>
+
+<div class="sub-item">
+<img src="images/ganeshaidol.jpg">
+<span>Brass Ganesha Idol</span>
+</div>
+
+<div class="sub-item">
+<img src="images/laksmi.jpg">
+<span>Brass Lakshmi Idol</span>
+</div>
+
+<div class="sub-item">
+<img src="images/krishna idols.webp">
+<span>Brass Krishna Idol</span>
+</div>
+
+<div class="sub-item">
+<img src="images/shiva.webp">
+<span>Brass Shiva Idol</span>
+</div>
+
+</div>
+<div class="submenu" id="poojaMenu">
+
+<div class="submenu-header">
+<i class="fas fa-arrow-left" onclick="backMenu()"></i>
+<h3>Pooja Items</h3>
+</div>
+
+<div class="sub-item">
+<img src="images/diyas.jpg">
+<span>Brass Diyas</span>
+</div>
+
+<div class="sub-item">
+<img src="images/bells.jpg">
+<span>Brass Bells</span>
+</div>
+
+<div class="sub-item">
+<img src="images/kalash.jpg">
+<span>Brass Kalash</span>
+</div>
+
+<div class="sub-item">
+<img src="images/poojathaali.jpg">
+<span>Brass Pooja Thali</span>
+</div>
+
+</div>
+<div class="submenu" id="kitchenMenu">
+
+<div class="submenu-header">
+<i class="fas fa-arrow-left" onclick="backMenu()"></i>
+<h3>Kitchen Brass</h3>
+</div>
+
+<div class="sub-item">
+<img src="images/bowlsset.jpg">
+<span>Brass Bowl Set</span>
+</div>
+
+<div class="sub-item">
+<img src="images/brassplates.webp">
+<span>Brass Plates</span>
+</div>
+
+<div class="sub-item">
+<img src="images/tumblers.webp">
+<span>Brass Tumblers</span>
+</div>
+
+</div>
+<div class="submenu" id="decorMenu">
+
+<div class="submenu-header">
+<i class="fas fa-arrow-left" onclick="backMenu()"></i>
+<h3>Brass Decor</h3>
+</div>
+
+<div class="sub-item">
+<img src="images/urli.jpg">
+<span>Brass Urli</span>
+</div>
+
+<div class="sub-item">
+<img src="images/homedecor.jpg">
+<span>Brass Wall Decor</span>
+</div>
+
+<div class="sub-item">
+<img src="images/vase.jpg">
+<span>Brass Flower Vase</span>
+</div>
+
+</div>
+<div class="submenu" id="giftMenu">
+
+<div class="submenu-header">
+<i class="fas fa-arrow-left" onclick="backMenu()"></i>
+<h3>Brass Gifts</h3>
+</div>
+
+<div class="sub-item">
+<img src="images/wedding.jpg">
+<span>Wedding Gifts</span>
+</div>
+
+<div class="sub-item">
+<img src="images/festival.webp">
+<span>Festival Gifts</span>
+</div>
+
+<div class="sub-item">
+<img src="images/corporate.webp">
+<span>Corporate Gifts</span>
+</div>
+
+</div>
+
+
+</div>
+
+<!-- ABOUT -->
+
+<section class="slider-section">
+
+<div class="slider">
+
+<div class="slide active">
+<img src="images/banner1.jpg" alt="">
+</div>
+
+<div class="slide">
+<img src="images/kitchenbanner.webp" alt="">
+</div>
+
+<div class="slide">
+<img src="images/banner4.webp" alt="">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CATEGORY CIRCLES -->
+<section class="categories" id="categories">
+<h2 class="section-title">Shop By Category</h2>
+
+<div class="category-scroll" id="categoryScroll">
+
+<a href="category.html?cat=idols" class="category">
+
+<div class="circle">
+<img src="images/brassidol.jpg">
+</div>
+
+<h4>Brass Idols</h4>
+
+</a>
+<a href="category.html?cat=pooja" class="category">
+<div class="circle">
+<img src="images/poojaitems.jpg">
+</div>
+<h4>Pooja Items</h4>
+</a>
+
+<a href="category.html?cat=kitchen" class="category">
+<div class="circle">
+<img src="images/kitchen bras.jpg">
+</div>
+<h4>Kitchen Brass</h4>
+</a>
+
+<a href="category.html?cat=decor" class="category">
+<div class="circle">
+<img src="images/homedecor.jpg">
+</div>
+<h4>Home Decor</h4>
+</a>
+
+<a href="category.html?cat=gifts" class="category">
+<div class="circle">
+<img src="images/brassgifts.jpg">
+</div>
+<h4>Brass Gifts</h4>
+</a>
+
+
+<a href="category.html?cat=diyas" class="category">
+<div class="circle">
+<img src="images/diyas.jpg">
+</div>
+<h4>Brass Diyas</h4>
+</a>
+
+<a href="category.html?cat=bells" class="category">
+<div class="circle">
+<img src="images/brassbells.jpg">
+</div>
+<h4>Brass Bells</h4>
+</a>
+
+<a href="category.html?cat=antique" class="category">
+<div class="circle">
+<img src="images/antique brass.webp">
+</div>
+<h4>Antique Brass</h4>
+</a>
+
+</div>
+
+</section>
+<!--  PRODUCTS -->
+
+<section class="products" id="products">
+
+<h2 class="section-title">Featured Brass Collections</h2>
+
+<div class="product-grid">
+
+<!-- PRODUCT 1 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=ganesha'">
+  <div class="img-box">
+    <img src="images/ganeshaidol.jpg">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Ganesha Idol</h3>
+  <p class="price">₹1,999</p>
+<button class="cart-btn"
+onclick="addToCart('Brass Ganesha Idol', 1999, 'images/ganeshaidol.jpg')">
+<i class="fas fa-plus"></i>
+ADD TO CART
+</button>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=diya'">
+  <div class="img-box">
+    <img src="images/diya set.jpg">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Diya Set</h3>
+  <p class="price">₹899</p>
+  <button class="cart-btn"
+  onclick="addToCart('Brass Diya Set', 899, 'images/diya set.jpg')">
+    <i class="fas fa-plus"></i>
+    ADD TO CART
+  </button>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=bell'">
+  <div class="img-box">
+    <img src="images/brassbell1.webp">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Bell</h3>
+  <p class="price">₹699</p>
+  <button class="cart-btn"
+  onclick="addToCart('Brass Bell', 699, 'images/brassbell1.webp')">
+    <i class="fas fa-plus"></i>
+    ADD TO CART
+  </button>
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=bowl'">
+  <div class="img-box">
+    <img src="images/bowlsset.jpg">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Bowl Set</h3>
+  <p class="price">₹1,299</p>
+  <button class="cart-btn"
+  onclick="addToCart('Brass Bowl Set', 1299, 'images/bowlsset.jpg')">
+    <i class="fas fa-plus"></i>
+    ADD TO CART
+  </button>
+</div>
+
+<!-- PRODUCT 5 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=thali'">
+  <div class="img-box">
+    <img src="images/brasspojjathali.webp">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Pooja Thali</h3>
+  <p class="price">₹1,499</p>
+<button class="cart-btn"
+onclick="addToCart('Brass Pooja Thali', 1499, 'images/brasspojjathali.webp')">
+<i class="fas fa-plus"></i>
+ADD TO CART
+</button>
+</div>
+
+<!-- PRODUCT 6 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=kalash'">
+  <div class="img-box">
+    <img src="images/kalash.jpg">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Kalash</h3>
+  <p class="price">₹799</p>
+  <button class="cart-btn"
+  onclick="addToCart('Brass Kalash', 799, 'images/kalash.jpg')">
+    <i class="fas fa-plus"></i>
+    ADD TO CART
+  </button>
+</div>
+
+<!-- PRODUCT 7 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=urli'">
+  <div class="img-box">
+    <img src="images/urli.jpg">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Decorative Urli</h3>
+  <p class="price">₹2,499</p>
+  <button class="cart-btn"
+  onclick="addToCart('Brass Decorative Urli', 2499, 'images/urli.jpg')">
+    <i class="fas fa-plus"></i>
+    ADD TO CART
+  </button>
+</div>
+
+<!-- PRODUCT 8 -->
+<div class="product-card"
+onclick="window.location.href='product.html?id=lakshmi'">
+  <div class="img-box">
+    <img src="images/laksmi.jpg">
+    <div class="icons-overlay">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-magnifying-glass"></i>
+    </div>
+  </div>
+  <h3>Brass Lakshmi Idol</h3>
+  <p class="price">₹2,299</p>
+  <button class="cart-btn"
+  onclick="addToCart('Brass Lakshmi Idol', 2299, 'images/laksmi.jpg')">
+    <i class="fas fa-plus"></i>
+    ADD TO CART
+  </button>
+</div>
+
+</div>
+
+</section>
+<!-- LOGIN POPUP -->
+
+<div class="login-popup" id="loginPopup">
+
+<div class="login-box">
+
+<span class="close-btn" onclick="closeLogin()">
+&times;
+</span>
+
+<h3>Sign In</h3>
+
+<input type="text"
+placeholder="Username"
+class="login-input">
+
+<input type="password"
+placeholder="Password"
+class="login-input">
+
+<button class="login-btn">
+Login
+</button>
+
+<p class="or-text">OR</p>
+
+<button class="google-btn">
+<i class="fab fa-google"></i>
+Login with Google
+</button>
+
+<button class="facebook-btn">
+<i class="fab fa-facebook-f"></i>
+Login with Facebook
+</button>
+
+
+<div class="create-account">
+
+<a href="#">
+Create Account
+</a>
+
+</div>
+
+</div>
+
+</div>
+<footer id="contact">
+
+<div class="footer-container">
+
+<div>
+<h3>ABS</h3>
+<p>Premium Brass Collections For Home, Pooja & Kitchen.</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+
+<p>
+<a href="#top">Home</a>
+</p>
+
+<p>
+<a href="#products">Products</a>
+</p>
+
+<p>
+<a href="#categories">Categories</a>
+</p>
+
+<p>
+<a href="#contact">Contact</a>
+</p>
+
+</div>
+
+<div>
+<h3>Contact</h3>
+<p>Ajjaram Brass Sourcing</p>
+<p>Andhra Pradesh</p>
+<p>support@abs.com</p>
+</div>
+
+</div>
+
+<p class="copyright">
+© 2026 Ajjaram Brass Sourcing. All Rights Reserved.
+</p>
+
+</footer>
+<script>
+
+let cart = 0;
+let wishlist = 0;
+
+function addCart(){
+cart++;
+document.getElementById("cartCount").innerHTML = cart;
+}
+
+function addWishlist(){
+wishlist++;
+document.getElementById("wishlistCount").innerHTML = wishlist;
+}
+
+function openLogin(){
+
+let box=document.getElementById("loginPopup");
+
+if(box.style.display==="block"){
+box.style.display="none";
+}
+else{
+box.style.display="block";
+}
+
+}
+
+function closeLogin(){
+document.getElementById("loginPopup").style.display="none";
+}
+function toggleSearch(){
+    const box = document.getElementById('searchPopup');
+    const input = document.getElementById('searchInput');
+    box.classList.toggle('show');
+    if(box.classList.contains('show')){
+        if(input) input.focus();
+        document.addEventListener('keydown', escSearchHandler);
+    } else {
+        document.removeEventListener('keydown', escSearchHandler);
+    }
+}
+
+// close popup when clicking on overlay background
+const _searchPopup = document.getElementById('searchPopup');
+if(_searchPopup){
+    _searchPopup.addEventListener('click', function(e){
+        if(e.target === _searchPopup){
+            _searchPopup.classList.remove('show');
+            document.removeEventListener('keydown', escSearchHandler);
+        }
+    });
+}
+
+function escSearchHandler(e){
+    if(e.key === 'Escape'){
+        const box = document.getElementById('searchPopup');
+        if(box && box.classList.contains('show')){
+            box.classList.remove('show');
+            const input = document.getElementById('searchInput');
+            if(input) input.blur();
+            document.removeEventListener('keydown', escSearchHandler);
+        }
+    }
+}
+function toggleMenu(){
+document.getElementById("mobileSidebar")
+.classList.toggle("active");
+}
+function openMenu(){
+    document.getElementById("mobileMenu")
+    .classList.add("active");
+}
+
+function closeMenu(){
+    document.getElementById("mobileMenu")
+    .classList.remove("active");
+}
+function showSubMenu(menuId){
+
+document.querySelector(".menu-category")
+.style.display="none";
+
+document.getElementById(menuId)
+.classList.add("active");
+
+}
+
+function backMenu(){
+
+document.querySelector(".menu-category")
+.style.display="block";
+
+document.querySelectorAll(".submenu")
+.forEach(menu=>{
+menu.classList.remove("active");
+});
+
+}
+
+</script>
+<script>
+
+const products=[
+
+{
+name:"Brass Ganesha Idol",
+price:"₹1,999",
+image:"images/ganeshaidol.jpg"
+},
+
+{
+name:"Brass Diya Set",
+price:"₹899",
+image:"images/diya set.jpg"
+},
+
+{
+name:"Brass Bell",
+price:"₹699",
+image:"images/brassbell1.webp"
+},
+
+{
+name:"Brass Bowl Set",
+price:"₹1,299",
+image:"images/bowlsset.jpg"
+},
+
+{
+name:"Brass Pooja Thali",
+price:"₹1,499",
+image:"images/brasspojjathali.webp"
+},
+
+{
+name:"Brass Kalash",
+price:"₹799",
+image:"images/kalash.jpg"
+},
+
+{
+name:"Brass Decorative Urli",
+price:"₹2,499",
+image:"images/urli.jpg"
+},
+
+{
+name:"Brass Lakshmi Idol",
+price:"₹2,299",
+image:"images/laksmi.jpg"
+}
+
+];
+
+function searchProducts(){
+
+let input=document
+.getElementById("searchInput")
+.value.toLowerCase();
+
+let results=document
+.getElementById("searchResults");
+
+results.innerHTML="";
+
+if(input===""){
+return;
+}
+
+let filtered=products.filter(product=>
+product.name.toLowerCase().includes(input)
+);
+
+filtered.forEach(product=>{
+
+results.innerHTML+=`
+
+<div class="search-item">
+
+<img src="${product.image}">
+
+<div class="search-info">
+
+<h4>${product.name}</h4>
+
+<p>${product.price}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+</script>
+<script>
+    
+
+let slides=document.querySelectorAll(".slide");
+let current=0;
+
+setInterval(()=>{
+
+slides[current].classList.remove("active");
+
+current++;
+
+if(current>=slides.length){
+current=0;
+}
+
+slides[current].classList.add("active");
+
+},3000);
+function addToCart(name, price, image) {
+
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartItems.push({
+        name: name,
+        price: price,
+        image: image,
+        qty: 1
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
+    alert(name + " added to cart!");
+}
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price, image) {
+
+    let item = {
+        name: name,
+        price: price,
+        image: image,
+        qty: 1
+    };
+
+    cartItems.push(item);
+
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
+    updateCartCount();
+
+    alert("Added to Cart!");
+}
+
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cartCount").innerText = cart.length;
+}
+
+window.onload = updateCartCount;
+let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+function addToWishlist(name, price, image) {
+
+    wishlistItems.push({ name, price, image });
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
+
+    updateWishlistCount();
+
+    alert("Added to Wishlist!");
+}
+
+function updateWishlistCount() {
+    let list = JSON.parse(localStorage.getItem("wishlist")) || [];
+    document.getElementById("wishlistCount").innerText = list.length;
+}
+
+window.onload = function () {
+    updateCartCount();
+    updateWishlistCount();
+};
+
+
+</script>
+
+</body>
+</html>

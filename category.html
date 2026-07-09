@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<title>ABS Category Products</title>
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(
+180deg,
+#F7E7C6 0%,
+#F2D9A6 50%,
+#E6C07B 100%
+);
+padding:30px;
+margin:0;
+}
+
+h1{
+text-align:center;
+margin-bottom:40px;
+color:#8A632A;
+font-size:38px;
+font-weight:700;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.product-card{
+background:white;
+border:1px solid rgba(212,175,55,.25);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(212,175,55,.25);
+}
+
+.img-box{
+position:relative;
+width:100%;
+aspect-ratio:1/1;
+overflow:hidden;
+}
+
+.img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.icons-overlay{
+position:absolute;
+top:10px;
+right:10px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.icons-overlay i{
+width:38px;
+height:38px;
+background:#fff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.icons-overlay i:hover{
+background:#C89B3C;
+color:white;
+}
+
+.btn-row{
+display:flex;
+gap:10px;
+padding:0 10px 15px;
+}
+
+.cart-btn,
+.buy-btn{
+flex:1;
+border:none;
+padding:12px;
+border-radius:5px;
+font-weight:600;
+cursor:pointer;
+}
+
+.buy-btn{
+background:#4A3214;
+color:white;
+}
+
+.product-card h3{
+padding:12px 15px 5px;
+}
+
+.price{
+padding:0 15px;
+color:#C89B3C;
+font-weight:700;
+}
+
+.cart-btn{
+flex:1;
+padding:12px;
+border:none;
+border-radius:5px;
+background:#C89B3C;
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+.product-card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+
+.product-card h3{
+padding:15px;
+text-align:center;
+}
+@media(max-width:900px){
+
+.product-grid{
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.img-box{
+aspect-ratio:1/1;
+height:auto;
+}
+.btn-row{
+display:flex;
+gap:5px;
+padding:8px;
+}
+
+.btn-row button{
+flex:1;
+height:40px;
+font-size:11px;
+padding:0;
+}
+.product-card{
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+.price{
+text-align:center;
+margin-bottom:8px;
+}
+
+.btn-row{
+margin-top:auto;
+}
+
+.product-card h3{
+font-size:14px;
+padding:10px;
+}
+
+.price{
+font-size:14px;
+}
+
+.cart-btn{
+font-size:12px;
+padding:10px;
+}
+
+}
+.navbar{
+background:linear-gradient(
+135deg,
+#4A3214,
+#8A632A,
+#C89B3C
+);
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:-30px -30px 30px -30px;
+}
+.nav-icons{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.nav-icons i{
+font-size:22px;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.nav-icons i:hover{
+transform:scale(1.1);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+width:50px;
+height:50px;
+border-radius:50%;
+}
+
+.logo h2{
+color:white;
+}
+
+.top-actions{
+display:flex;
+justify-content:flex-start;
+margin:15px 0 20px 0;
+padding-left:10px;
+}
+
+.home-btn{
+background:#4A3214;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:25px;
+font-weight:600;
+}
+@media(max-width:900px){
+
+.nav-icons{
+gap:12px;
+}
+
+.nav-icons i{
+font-size:18px;
+}
+
+.home-btn{
+font-size:12px;
+padding:8px 14px;
+}
+
+}
+.home-btn{
+background:#C89B3C;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:25px;
+font-weight:600;
+display:inline-block;
+}
+.icons-overlay i.active{
+color:red;
+}
+
+
+</style>
+</head>
+<body>
+<nav class="navbar">
+
+<div class="logo">
+<img src="images/brass icon.jpg" alt="ABS">
+<h2>ABS</h2>
+</div>
+
+<div class="nav-icons">
+
+<i class="fas fa-search"></i>
+
+<i class="fas fa-user"></i>
+
+<a href="wishlist.html" style="color:white;position:relative;">
+
+<i class="fas fa-heart"></i>
+
+<span id="wishlistCount"
+style="
+position:absolute;
+top:-10px;
+right:-12px;
+background:red;
+color:white;
+width:18px;
+height:18px;
+border-radius:50%;
+font-size:11px;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+0
+</span>
+
+</a>
+
+<a href="cart.html" style="color:white;position:relative;">
+
+<i class="fas fa-shopping-cart"></i>
+
+<span id="cartCount"
+style="
+position:absolute;
+top:-10px;
+right:-12px;
+background:red;
+color:white;
+width:18px;
+height:18px;
+border-radius:50%;
+font-size:11px;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+0
+</span>
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="top-actions">
+
+<a href="index.html" class="home-btn">
+← Back To Home
+</a>
+
+</div>
+
+<h1 id="title"></h1>
+
+<p style="
+text-align:center;
+color:#555;
+margin-top:-20px;
+margin-bottom:40px;
+">
+Premium Antique Products From ABS
+</p>
+
+<div class="product-grid" id="products"></div>
+
+<script>
+
+const category =
+new URLSearchParams(window.location.search)
+.get("cat");
+
+const data = {
+
+idols:[
+["Brass Ganesha Idol","images/ganeshaidol.jpg","₹1,999"],
+["Brass Lakshmi Idol","images/laksmi.jpg","₹2,299"],
+["Brass Krishna Idol","images/krishna idols.webp","₹2,499"],
+["Brass Shiva Idol","images/shiva.webp","₹2,799"],
+["Brass Hanuman Idol","images/hanuman.webp","₹1,899"],
+["Brass Buddha Idol","images/budha.webp","₹2,199"]
+],
+
+pooja:[
+["Brass Diya","images/diyas.jpg","₹899"],
+["Brass Kalash","images/kalash.jpg","₹799"],
+["Brass Bell","images/brassbell1.webp","₹699"],
+["Brass Pooja Thali","images/brasspojjathali.webp","₹1,499"],
+["Brass Deepam","images/deepam.webp","₹999"],
+["Brass Panchapatra","images/panchapatra.webp","₹799"]
+],
+kitchen:[
+["Brass Bowl Set","images/bowlsset.jpg","₹1,299"],
+["Brass Plates","images/kitchen.jpg","₹999"],
+["Brass Tumblers","images/tumblers.webp","₹799"],
+["Brass Water Pot","images/waterpot.webp","₹1,599"],
+["Brass Tea Pot","images/tea.jpg","₹1,299"],
+["Brass Serving Tray","images/serving.webp","₹1,799"]
+],
+
+decor:[
+["Brass Urli","images/urli.jpg","₹2,499"],
+["Brass Flower Vase","images/flowervase.webp","₹1,599"],
+["Brass Peacock","images/peacock.webp","₹2,299"],
+["Brass Elephant","images/brasselephant.webp","₹1,999"],
+["Brass Wall Decor","images/budha1.jpg","₹2,799"],
+["Brass Candle Stand","images/candleset.webp","₹1,299"]
+],
+gifts:[
+["Wedding Gift Set","images/wedding.jpg","₹2,499"],
+["Festival Gift Box","images/festi.jpg","₹1,999"],
+["Corporate Gift Set","images/corporate.webp","₹2,999"],
+["Brass Idol Gift Set","images/ganeshaidol.jpg","₹2,299"],
+["Brass Diya Gift Pack","images/diya set.jpg","₹1,499"],
+["Brass Bowl Gift Set","images/bowlsset.jpg","₹1,899"]
+],
+diyas:[
+["Single Brass Diya","images/diyas.jpg","₹499"],
+["Peacock Diya","images/peacock1.webp","₹799"],
+["Akhand Diya","images/akhand.jpg","₹999"],
+["Temple Diya","images/templediya.jpg","₹899"],
+["Hanging Diya","images/hanging.jpg","₹1,299"],
+["Designer Diya","images/designer.jpg","₹699"]
+],
+};
+
+document.getElementById("title").innerHTML =
+category.toUpperCase()+" PRODUCTS";
+
+let output="";
+
+data[category].forEach(product=>{
+
+output += `
+<div class="product-card">
+
+<div class="img-box">
+
+<img src="${product[1]}" alt="${product[0]}">
+
+<div class="icons-overlay">
+
+<i class="fas fa-heart"
+onclick="addWishlist(
+'${product[0]}',
+'${product[1]}',
+'${product[2]}'
+)">
+</i>
+
+<i class="fas fa-search"></i>
+
+</div>
+
+</div>
+
+<h3>${product[0]}</h3>
+
+<p class="price">${product[2]}</p>
+
+<div class="btn-row">
+
+<button
+class="cart-btn"
+onclick="addCart(
+'${product[0]}',
+'${product[1]}',
+'${product[2]}'
+)">
+
+<i class="fas fa-shopping-cart"></i>
+
+ADD TO CART
+
+</button>
+
+<button
+class="buy-btn"
+onclick="buyNow('${product[0]}')">
+
+<i class="fas fa-bolt"></i>
+
+BUY NOW
+
+</button>
+
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("products").innerHTML =
+output;
+
+let cartItems =
+JSON.parse(localStorage.getItem("cartItems")) || [];
+
+let wishlistItems =
+JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+updateCounts();
+
+function addCart(name,image,price){
+
+cartItems.push({
+name:name,
+image:image,
+price:price
+});
+
+localStorage.setItem(
+"cartItems",
+JSON.stringify(cartItems)
+);
+
+updateCounts();
+
+alert("Added To Cart");
+
+}
+
+
+function addWishlist(name,image,price){
+
+wishlistItems.push({
+name:name,
+image:image,
+price:price
+});
+
+localStorage.setItem(
+"wishlistItems",
+JSON.stringify(wishlistItems)
+);
+
+updateCounts();
+
+event.target.classList.add("active");
+
+alert("Added To Wishlist");
+
+}
+
+
+function buyNow(product){
+
+alert(
+"Proceeding to checkout for " + product
+);
+
+}
+
+function updateCounts(){
+
+document.getElementById("cartCount").innerHTML =
+cartItems.length;
+
+document.getElementById("wishlistCount").innerHTML =
+wishlistItems.length;
+
+let cartItems =
+JSON.parse(localStorage.getItem("cartItems")) || [];
+
+let wishlistItems =
+JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+document.getElementById("cartCount").innerHTML =
+cartItems.length;
+
+document.getElementById("wishlistCount").innerHTML =
+wishlistItems.length;
+
+
+}
+
+function addCart(product){
+
+let cartItems =
+JSON.parse(localStorage.getItem("cartItems")) || [];
+
+cartItems.push(product);
+
+localStorage.setItem(
+"cartItems",
+JSON.stringify(cartItems)
+);
+
+document.getElementById("cartCount").innerHTML =
+cartItems.length;
+
+alert(product + " added to cart");
+
+}
+
+function addWishlist(product){
+
+let wishlistItems =
+JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+wishlistItems.push(product);
+
+localStorage.setItem(
+"wishlistItems",
+JSON.stringify(wishlistItems)
+);
+
+document.getElementById("wishlistCount").innerHTML =
+wishlistItems.length;
+
+alert(product + " added to wishlist");
+
+}
+
+function addCart(name,image,price){
+
+let cartItems =
+JSON.parse(localStorage.getItem("cartItems")) || [];
+
+cartItems.push({
+name:name,
+image:image,
+price:price
+});
+
+localStorage.setItem(
+"cartItems",
+JSON.stringify(cartItems)
+);
+
+alert("Added To Cart");
+
+}
+
+function addWishlist(name,image,price){
+
+let wishlistItems =
+JSON.parse(localStorage.getItem("wishlistItems")) || [];
+
+wishlistItems.push({
+name:name,
+image:image,
+price:price
+});
+
+localStorage.setItem(
+"wishlistItems",
+JSON.stringify(wishlistItems)
+);
+
+alert("Added To Wishlist");
+
+}
+
+</script>
+
+
+</body>
+</html>
