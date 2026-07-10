@@ -1,115 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ABS Cart</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-
-body{
-font-family:Poppins,sans-serif;
-background:#f5f5f5;
-padding:30px;
-}
-
-h1{
-text-align:center;
-color:#8A632A;
-}
-
-.cart-box{
-background:white;
-padding:15px;
-margin-bottom:15px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-button{
-background:red;
-color:white;
-border:none;
-padding:10px 15px;
-cursor:pointer;
-border-radius:5px;
-}
-
-.home-btn{
-background:#B8860B;
-text-decoration:none;
-color:white;
-padding:10px 20px;
-border-radius:25px;
-display:inline-block;
-margin-bottom:20px;
-}
-
+*{box-sizing:border-box} body{margin:0;font-family:Poppins,sans-serif;background:linear-gradient(180deg,#f9edcf,#edce8e);color:#322414;min-height:100vh}.page{max-width:900px;margin:auto;padding:22px 16px 50px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.home-btn{background:#8a632a;color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-weight:600}.clear-btn,.remove-btn,.checkout-btn{border:0;cursor:pointer;font-family:inherit;font-weight:600}.clear-btn{background:#fff;color:#a32626;padding:10px 16px;border-radius:999px;box-shadow:0 4px 14px #00000016}h1{text-align:center;color:#8a632a;margin:10px 0 24px}.cart-box{background:#fff;margin-bottom:12px;border-radius:16px;box-shadow:0 6px 18px #00000012;padding:14px;display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:center}.cart-box img{width:92px;height:92px;object-fit:cover;border-radius:12px;background:#eee}.name{font-weight:700;margin:0 0 5px}.price{color:#b8860b;font-weight:700;margin:0}.qty{font-size:13px;color:#666;margin-top:5px}.remove-btn{background:#d93636;color:#fff;height:40px;min-width:92px;border-radius:8px}.empty{text-align:center;background:#fff;padding:35px 15px;border-radius:18px;box-shadow:0 6px 18px #00000012}.summary{margin-top:20px;background:#fff;padding:18px;border-radius:16px;box-shadow:0 6px 18px #00000012;display:flex;align-items:center;justify-content:space-between;gap:15px}.checkout-btn{background:linear-gradient(135deg,#b8860b,#d4af37);color:#fff;height:44px;padding:0 22px;border-radius:8px}@media(max-width:600px){.page{padding:14px 10px 35px}.home-btn,.clear-btn{font-size:12px;padding:8px 12px}h1{font-size:25px;margin-bottom:16px}.cart-box{grid-template-columns:72px 1fr;gap:10px;padding:10px}.cart-box img{width:72px;height:72px}.remove-btn{grid-column:1/-1;width:100%;height:36px}.name{font-size:13px}.price,.qty{font-size:12px}.summary{flex-direction:column;align-items:stretch}.checkout-btn{width:100%}}
 </style>
 </head>
-
 <body>
-
-<a href="index.html" class="home-btn">
-← Home
-</a>
-
+<main class="page">
+<div class="top"><a href="index.html" class="home-btn">← Home</a><button class="clear-btn" onclick="clearCart()">Clear Cart</button></div>
 <h1>My Cart</h1>
-
 <div id="cartContainer"></div>
-
+<div id="summary"></div>
+</main>
 <script>
-
-let cartItems=
-JSON.parse(localStorage.getItem("cartItems"))||[];
-
-let output="";
-
-if(cartItems.length===0){
-
-output="<h3>Your Cart Is Empty</h3>";
-
-}else{
-
-cartItems.forEach((item,index)=>{
-
-output+=`
-
-<div class="cart-box">
-
-<span>${item}</span>
-
-<button onclick="removeItem(${index})">
-Remove
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-document.getElementById("cartContainer")
-.innerHTML=output;
-
-function removeItem(index){
-
-cartItems.splice(index,1);
-
-localStorage.setItem(
-"cartItems",
-JSON.stringify(cartItems)
-);
-
-location.reload();
-
-}
-
+function getCart(){try{return JSON.parse(localStorage.getItem('cartItems'))||[]}catch(e){return[]}}
+function money(value){const n=Number(String(value).replace(/[^0-9.]/g,''))||0;return '₹'+n.toLocaleString('en-IN')}
+function render(){const items=getCart();const box=document.getElementById('cartContainer');const summary=document.getElementById('summary');if(!items.length){box.innerHTML='<div class="empty"><h3>Your Cart Is Empty</h3><p>Add products from the Home or Category page.</p></div>';summary.innerHTML='';return}box.innerHTML=items.map((item,index)=>`<article class="cart-box"><img src="${item.image||''}" alt="${item.name||'Product'}"><div><p class="name">${item.name||item}</p><p class="price">${money(item.price||0)}</p><p class="qty">Quantity: ${item.qty||1}</p></div><button class="remove-btn" onclick="removeItem(${index})">Remove</button></article>`).join('');const total=items.reduce((sum,item)=>sum+(Number(item.price)||0)*(item.qty||1),0);summary.innerHTML=`<div class="summary"><strong>Total: ${money(total)}</strong><button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button></div>`}
+function removeItem(index){const items=getCart();items.splice(index,1);localStorage.setItem('cartItems',JSON.stringify(items));render()}
+function clearCart(){localStorage.removeItem('cartItems');render()}
+function checkout(){window.location.href='checkout.html'}
+render();
 </script>
-
 </body>
 </html>
