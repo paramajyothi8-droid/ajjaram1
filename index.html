@@ -1403,7 +1403,286 @@ height:45px;
     }
 
 }
+/* ✅ MOBILE BANNER + SECTION GAP + BUTTON FIX */
+@media(max-width:900px){
 
+    /* Banner full width with rounded corners */
+    .slider-section{
+        width:calc(100% - 20px);
+        margin:10px auto 18px;
+        border-radius:22px;
+        overflow:hidden;
+        box-shadow:0 8px 22px rgba(0,0,0,.18);
+    }
+
+    .slider{
+        width:100%;
+        height:220px;
+    }
+
+    .slide img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
+        border-radius:22px;
+    }
+
+    /* Reduce gap between sections */
+    .categories{
+        padding:22px 4% 18px;
+    }
+
+    .products{
+        padding:25px 4% 35px;
+    }
+
+    .section-title{
+        font-size:25px;
+        margin-bottom:20px;
+    }
+
+    .category-scroll{
+        padding:10px 5px 5px;
+        gap:18px;
+    }
+
+    /* Product card equal height */
+    .product-card{
+        min-height:335px;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .img-box{
+        height:155px;
+    }
+
+    .product-card h3{
+        min-height:42px;
+        font-size:13px;
+        line-height:1.3;
+        padding:10px 10px 4px;
+    }
+
+    .price{
+        font-size:14px;
+        padding:0 10px;
+    }
+
+    /* Buttons always same position and same size */
+    .product-actions{
+        margin-top:auto;
+        padding:10px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .cart-btn,
+    .buy-btn{
+        width:100%;
+        height:38px;
+        margin:0;
+        padding:0;
+        border:none;
+        border-radius:6px;
+        font-size:11px;
+        font-weight:700;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+        cursor:pointer;
+    }
+
+    .cart-btn{
+        background:linear-gradient(135deg,#B8860B,#D4AF37);
+        color:white;
+    }
+
+    .buy-btn{
+        background:#3D2B1F;
+        color:white;
+    }
+}
+
+
+
+/* FINAL MOBILE ALIGNMENT AND COMPACT SPACING */
+.categories{padding-top:26px;padding-bottom:22px;}
+.products{padding-top:34px;padding-bottom:42px;}
+.product-actions{margin-top:auto;padding:12px 15px 15px;}
+.product-actions .cart-btn{width:100%;margin:0;}
+.product-card > .cart-btn{margin-top:auto;}
+.icons-overlay i.active{background:#fff0f0;color:#d62828;}
+
+@media(max-width:900px){
+  .slider-section{margin-bottom:10px;}
+  .categories{padding:16px 12px 12px;}
+  .products{padding:18px 12px 28px;}
+  .section-title{margin-bottom:14px;font-size:23px;}
+  .category-scroll{gap:12px;padding:6px 2px 2px;}
+  .category{min-width:116px;}
+  .circle{width:102px;height:102px;border-width:3px;}
+  .category h4{margin-top:8px;font-size:13px;white-space:normal;line-height:1.25;}
+  .product-grid{gap:10px;align-items:stretch;}
+  .product-card{min-height:300px;border-radius:14px;}
+  .img-box{height:145px;}
+  .product-card h3{min-height:42px;margin:0;padding:9px 9px 3px;font-size:12px;line-height:1.35;}
+  .price{padding:0 9px;font-size:13px;}
+  .product-actions{margin-top:auto;padding:9px;}
+  .cart-btn,.buy-btn,.product-card > .cart-btn{width:calc(100% - 18px);height:38px;margin:9px;min-width:0;padding:0 6px;border-radius:6px;font-size:10px;line-height:1;}
+  .product-actions .cart-btn{width:100%;margin:0;}
+  .icons-overlay{top:8px;right:8px;gap:7px;}
+  .icons-overlay i{width:30px;height:30px;padding:0;font-size:12px;display:flex;align-items:center;justify-content:center;}
+}
+
+
+/* FINAL MOBILE PRODUCT COMPACTNESS */
+@media(max-width:900px){
+  .products{padding:18px 3% 24px;}
+  .products .section-title{font-size:21px;margin-bottom:12px;}
+  .product-grid{gap:9px;}
+  .product-card{border-radius:12px;}
+  .img-box{height:145px;}
+  .product-card h3{min-height:35px;font-size:11px;line-height:1.2;padding:7px 6px 2px;}
+  .price{font-size:12px;padding:0 6px;}
+  .product-actions{padding:6px;}
+  .product-actions .cart-btn,.product-card>.cart-btn{height:34px;font-size:9px;margin:6px auto;width:92%;padding:0 4px;}
+}
+
+
+/* ===== FINAL FEATURED CARD COMPACT FIX ===== */
+.products .product-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:18px;
+    align-items:start;
+}
+.products .product-card{
+    height:auto;
+    min-height:0;
+    display:grid;
+    grid-template-rows:auto auto auto auto;
+    align-content:start;
+}
+.products .img-box{
+    height:auto;
+    aspect-ratio:1 / 0.92;
+}
+.products .product-card h3{
+    min-height:0;
+    margin:0;
+    padding:10px 12px 3px;
+    font-size:15px;
+    line-height:1.3;
+}
+.products .price{
+    margin:0;
+    padding:0 12px 7px;
+    font-size:16px;
+    line-height:1.2;
+}
+.products .product-actions{
+    margin:0;
+    padding:0 10px 10px;
+}
+.products .product-actions .cart-btn,
+.products .product-card > .cart-btn{
+    width:calc(100% - 20px);
+    height:40px;
+    margin:0 10px 10px;
+    padding:0 10px;
+    border-radius:7px;
+    font-size:12px;
+}
+.products .product-actions .cart-btn{
+    width:100%;
+    margin:0;
+}
+
+@media(max-width:900px){
+    .products{padding:15px 10px 22px;}
+    .products .section-title{font-size:20px;margin-bottom:11px;}
+    .products .product-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:9px;
+    }
+    .products .product-card{
+        min-height:0;
+        border-radius:12px;
+    }
+    .products .img-box{
+        height:auto;
+        aspect-ratio:1 / 0.92;
+    }
+    .products .product-card h3{
+        min-height:0;
+        padding:7px 7px 2px;
+        font-size:11px;
+        line-height:1.25;
+    }
+    .products .price{
+        padding:0 7px 6px;
+        font-size:12px;
+    }
+    .products .product-actions{
+        padding:0 6px 7px;
+    }
+    .products .product-actions .cart-btn,
+    .products .product-card > .cart-btn{
+        width:calc(100% - 12px);
+        height:34px;
+        margin:0 6px 7px;
+        padding:0 4px;
+        font-size:9px;
+        border-radius:6px;
+    }
+    .products .product-actions .cart-btn{
+        width:100%;
+        margin:0;
+    }
+}
+
+/* ===== ABS DEFINITIVE MOBILE FIX ===== */
+@media (max-width: 600px){
+  body{width:100%;overflow-x:hidden;}
+  .navbar{min-height:64px;padding:9px 10px;gap:8px;}
+  .logo{min-width:0;gap:7px;}
+  .logo img{width:38px;height:38px;}
+  .logo h2{font-size:18px;white-space:nowrap;}
+  .icons{gap:10px;flex-shrink:0;}
+  .icons i,.search-icon{font-size:17px;}
+  .menu-btn{width:36px;height:36px;font-size:18px;flex-shrink:0;}
+
+  .slider-section{width:calc(100% - 16px);margin:8px auto 10px;border-radius:16px;}
+  .slider{height:180px;}
+  .slide img{border-radius:16px;}
+
+  .categories{padding:14px 8px 10px;}
+  .section-title{font-size:19px;line-height:1.25;margin-bottom:10px;}
+  .category-scroll{gap:10px;padding:4px 0 2px;}
+  .category{min-width:92px;text-decoration:none;}
+  .circle{width:82px;height:82px;border-width:3px;}
+  .category h4{font-size:11px;line-height:1.2;margin-top:6px;color:#333;}
+
+  .products{padding:14px 8px 20px;}
+  .products .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start;}
+  .products .product-card{display:flex;flex-direction:column;height:auto!important;min-height:0!important;border-radius:11px;overflow:hidden;}
+  .products .img-box{width:100%;height:auto!important;aspect-ratio:1/1;}
+  .products .img-box img{width:100%;height:100%;object-fit:cover;}
+  .products .product-card h3{min-height:30px!important;margin:0;padding:6px 6px 1px;font-size:10.5px;line-height:1.2;text-align:left;}
+  .products .price{margin:0;padding:0 6px 5px;font-size:11px;line-height:1.2;}
+  .products .product-actions{margin:0!important;padding:0 5px 6px!important;}
+  .products .cart-btn,.products .product-card>.cart-btn,.products .product-actions .cart-btn{width:calc(100% - 10px)!important;height:32px!important;min-height:32px;margin:0 5px 6px!important;padding:0 3px!important;border-radius:5px;font-size:8.5px!important;line-height:1!important;}
+  .products .product-actions .cart-btn{width:100%!important;margin:0!important;}
+  .icons-overlay{top:6px;right:6px;gap:5px;}
+  .icons-overlay i{width:26px;height:26px;padding:0;font-size:10px;}
+
+  .search-popup{top:64px;left:6px;right:6px;border-radius:10px;padding:10px;}
+  .search-box{display:flex!important;padding:10px 38px 10px 36px;}
+  footer{margin-top:0;padding:18px 12px 12px;}
+}
 
 </style>
 </head>
@@ -1967,11 +2246,16 @@ onclick="window.location.href='product.html?id=ganesha'">
   </div>
   <h3>Brass Ganesha Idol</h3>
   <p class="price">₹1,999</p>
+<div class="product-actions">
+
 <button class="cart-btn"
-onclick="addToCart('Brass Ganesha Idol', 1999, 'images/ganeshaidol.jpg')">
+onclick="event.stopPropagation(); addToCart('Brass Ganesha Idol', 1999, 'images/ganeshaidol.jpg')">
 <i class="fas fa-plus"></i>
 ADD TO CART
 </button>
+
+
+</div>
 </div>
 
 <!-- PRODUCT 2 -->
@@ -1986,11 +2270,16 @@ onclick="window.location.href='product.html?id=diya'">
   </div>
   <h3>Brass Diya Set</h3>
   <p class="price">₹899</p>
-  <button class="cart-btn"
-  onclick="addToCart('Brass Diya Set', 899, 'images/diya set.jpg')">
-    <i class="fas fa-plus"></i>
-    ADD TO CART
-  </button>
+  <div class="product-actions">
+
+<button class="cart-btn"
+onclick="event.stopPropagation(); addToCart('Brass Diya Set', 899, 'images/diya set.jpg')">
+<i class="fas fa-plus"></i>
+ADD TO CART
+</button>
+
+
+</div>
 </div>
 
 <!-- PRODUCT 3 -->
@@ -2006,7 +2295,7 @@ onclick="window.location.href='product.html?id=bell'">
   <h3>Brass Bell</h3>
   <p class="price">₹699</p>
   <button class="cart-btn"
-  onclick="addToCart('Brass Bell', 699, 'images/brassbell1.webp')">
+  onclick="event.stopPropagation(); addToCart('Brass Bell', 699, 'images/brassbell1.webp')">
     <i class="fas fa-plus"></i>
     ADD TO CART
   </button>
@@ -2025,7 +2314,7 @@ onclick="window.location.href='product.html?id=bowl'">
   <h3>Brass Bowl Set</h3>
   <p class="price">₹1,299</p>
   <button class="cart-btn"
-  onclick="addToCart('Brass Bowl Set', 1299, 'images/bowlsset.jpg')">
+  onclick="event.stopPropagation(); addToCart('Brass Bowl Set', 1299, 'images/bowlsset.jpg')">
     <i class="fas fa-plus"></i>
     ADD TO CART
   </button>
@@ -2044,7 +2333,7 @@ onclick="window.location.href='product.html?id=thali'">
   <h3>Brass Pooja Thali</h3>
   <p class="price">₹1,499</p>
 <button class="cart-btn"
-onclick="addToCart('Brass Pooja Thali', 1499, 'images/brasspojjathali.webp')">
+onclick="event.stopPropagation(); addToCart('Brass Pooja Thali', 1499, 'images/brasspojjathali.webp')">
 <i class="fas fa-plus"></i>
 ADD TO CART
 </button>
@@ -2063,7 +2352,7 @@ onclick="window.location.href='product.html?id=kalash'">
   <h3>Brass Kalash</h3>
   <p class="price">₹799</p>
   <button class="cart-btn"
-  onclick="addToCart('Brass Kalash', 799, 'images/kalash.jpg')">
+  onclick="event.stopPropagation(); addToCart('Brass Kalash', 799, 'images/kalash.jpg')">
     <i class="fas fa-plus"></i>
     ADD TO CART
   </button>
@@ -2082,7 +2371,7 @@ onclick="window.location.href='product.html?id=urli'">
   <h3>Brass Decorative Urli</h3>
   <p class="price">₹2,499</p>
   <button class="cart-btn"
-  onclick="addToCart('Brass Decorative Urli', 2499, 'images/urli.jpg')">
+  onclick="event.stopPropagation(); addToCart('Brass Decorative Urli', 2499, 'images/urli.jpg')">
     <i class="fas fa-plus"></i>
     ADD TO CART
   </button>
@@ -2101,7 +2390,7 @@ onclick="window.location.href='product.html?id=lakshmi'">
   <h3>Brass Lakshmi Idol</h3>
   <p class="price">₹2,299</p>
   <button class="cart-btn"
-  onclick="addToCart('Brass Lakshmi Idol', 2299, 'images/laksmi.jpg')">
+  onclick="event.stopPropagation(); addToCart('Brass Lakshmi Idol', 2299, 'images/laksmi.jpg')">
     <i class="fas fa-plus"></i>
     ADD TO CART
   </button>
@@ -2402,89 +2691,94 @@ results.innerHTML+=`
 
 </script>
 <script>
-    
-
-let slides=document.querySelectorAll(".slide");
-let current=0;
-
-setInterval(()=>{
-
-slides[current].classList.remove("active");
-
-current++;
-
-if(current>=slides.length){
-current=0;
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+if (slides.length > 1) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 3000);
 }
 
-slides[current].classList.add("active");
-
-},3000);
-function addToCart(name, price, image) {
-
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-    cartItems.push({
-        name: name,
-        price: price,
-        image: image,
-        qty: 1
-    });
-
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-
-    alert(name + " added to cart!");
-}
-let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-function addToCart(name, price, image) {
-
-    let item = {
-        name: name,
-        price: price,
-        image: image,
-        qty: 1
-    };
-
-    cartItems.push(item);
-
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-
-    updateCartCount();
-
-    alert("Added to Cart!");
+function getStoredItems(key){
+  try { return JSON.parse(localStorage.getItem(key)) || []; }
+  catch(e){ return []; }
 }
 
-function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    document.getElementById("cartCount").innerText = cart.length;
+function saveStoredItems(key,items){
+  localStorage.setItem(key,JSON.stringify(items));
 }
 
-window.onload = updateCartCount;
-let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
-
-function addToWishlist(name, price, image) {
-
-    wishlistItems.push({ name, price, image });
-
-    localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
-
-    updateWishlistCount();
-
-    alert("Added to Wishlist!");
+function normalizePrice(price){
+  if(typeof price === 'number') return price;
+  return Number(String(price).replace(/[^0-9.]/g,'')) || 0;
 }
 
-function updateWishlistCount() {
-    let list = JSON.parse(localStorage.getItem("wishlist")) || [];
-    document.getElementById("wishlistCount").innerText = list.length;
+function updateCartCount(){
+  const el=document.getElementById('cartCount');
+  if(el) el.textContent=getStoredItems('cartItems').length;
 }
 
-window.onload = function () {
-    updateCartCount();
-    updateWishlistCount();
-};
+function updateWishlistCount(){
+  const el=document.getElementById('wishlistCount');
+  if(el) el.textContent=getStoredItems('wishlistItems').length;
+}
 
+function addToCart(name,price,image){
+  const cartItems=getStoredItems('cartItems');
+  const existing=cartItems.find(item=>item.name===name);
+  if(existing){ existing.qty=(existing.qty||1)+1; }
+  else { cartItems.push({name,price:normalizePrice(price),image,qty:1}); }
+  saveStoredItems('cartItems',cartItems);
+  updateCartCount();
+  alert(name+' added to cart!');
+}
 
+function addToWishlist(name,price,image,icon){
+  const wishlistItems=getStoredItems('wishlistItems');
+  if(!wishlistItems.some(item=>item.name===name)){
+    wishlistItems.push({name,price:normalizePrice(price),image});
+    saveStoredItems('wishlistItems',wishlistItems);
+    alert(name+' added to wishlist!');
+  }else{
+    alert(name+' is already in your wishlist.');
+  }
+  if(icon) icon.classList.add('active');
+  updateWishlistCount();
+}
+
+// Make every product-card heart work without changing the HTML one by one.
+document.querySelectorAll('.product-card').forEach(card=>{
+  const heart=card.querySelector('.icons-overlay .fa-heart');
+  if(!heart) return;
+  heart.addEventListener('click',event=>{
+    event.stopPropagation();
+    const name=card.querySelector('h3')?.textContent.trim() || 'Brass Product';
+    const price=card.querySelector('.price')?.textContent.trim() || '0';
+    const image=card.querySelector('.img-box img')?.getAttribute('src') || '';
+    addToWishlist(name,price,image,heart);
+  });
+});
+
+// Prevent image action icons from accidentally opening the product page.
+document.querySelectorAll('.product-card').forEach(card=>{
+  const viewIcon=card.querySelector('.icons-overlay .fa-magnifying-glass');
+  if(!viewIcon) return;
+  viewIcon.addEventListener('click',event=>{
+    event.stopPropagation();
+    const target=card.getAttribute('onclick') || '';
+    const match=target.match(/window\.location\.href=['\"]([^'\"]+)['\"]/);
+    if(match) window.location.href=match[1];
+  });
+});
+
+// Top navbar heart opens the Wishlist page only.
+const topHeart=document.querySelector('.icon-box a[href="wishlist.html"] i');
+if(topHeart) topHeart.removeAttribute('onclick');
+
+updateCartCount();
+updateWishlistCount();
 </script>
 
 </body>
