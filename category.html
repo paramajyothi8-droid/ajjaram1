@@ -289,6 +289,91 @@ color:red;
 }
 
 
+
+/* FINAL RESPONSIVE FIXES */
+.product-card{display:flex;flex-direction:column;height:100%;}
+.product-card h3{margin:0;min-height:58px;display:flex;align-items:center;justify-content:center;line-height:1.35;}
+.price{text-align:center;margin:0 0 12px;}
+.btn-row{margin-top:auto;}
+.cart-btn,.buy-btn{height:44px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;}
+@media(max-width:900px){
+ body{padding:14px;}
+ .navbar{margin:-14px -14px 14px;padding:11px 14px;}
+ .logo img{width:42px;height:42px;}
+ .logo h2{font-size:21px;}
+ .top-actions{margin:10px 0 12px;padding:0;}
+ h1{font-size:25px;margin:14px 0 8px;}
+ h1 + p{margin:0 0 18px!important;font-size:13px;}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+ .product-card{border-radius:13px;min-width:0;}
+ .product-card h3{min-height:48px;padding:8px 6px 3px;font-size:12px;}
+ .price{font-size:13px;margin-bottom:7px;padding:0 6px;}
+ .icons-overlay{top:7px;right:7px;gap:6px;}
+ .icons-overlay i{width:30px;height:30px;font-size:12px;}
+ .btn-row{gap:5px;padding:7px;}
+ .cart-btn,.buy-btn{height:36px;padding:0 3px;font-size:9px;line-height:1.05;border-radius:5px;white-space:nowrap;}
+ .cart-btn i,.buy-btn i{font-size:10px;}
+}
+
+
+/* COMPACT CATEGORY CARDS + MOBILE FONT FIX */
+.product-card{
+  height:auto;
+  min-height:0;
+}
+.product-card h3{
+  min-height:0;
+  margin:0;
+  padding:10px 10px 4px;
+}
+.price{
+  margin:0 0 8px;
+}
+.btn-row{
+  margin-top:0;
+}
+@media(max-width:900px){
+  body{padding:10px;}
+  .navbar{margin:-10px -10px 10px;padding:10px 12px;}
+  .top-actions{margin:8px 0 8px;}
+  h1{font-size:21px;margin:8px 0 4px;line-height:1.2;}
+  h1 + p{font-size:11px!important;margin:0 0 12px!important;}
+  .product-grid{gap:8px;}
+  .product-card{border-radius:11px;box-shadow:0 3px 10px rgba(0,0,0,.10);}
+  .img-box{aspect-ratio:1/1;height:auto;}
+  .product-card h3{min-height:34px;padding:6px 5px 2px;font-size:10px;line-height:1.2;}
+  .price{font-size:11px;padding:0 5px;margin-bottom:4px;}
+  .icons-overlay{top:5px;right:5px;gap:5px;}
+  .icons-overlay i{width:27px;height:27px;font-size:10px;}
+  .btn-row{gap:4px;padding:5px;}
+  .cart-btn,.buy-btn{height:32px;font-size:8px;padding:0 2px;line-height:1;border-radius:4px;}
+  .cart-btn i,.buy-btn i{font-size:8px;}
+}
+
+/* ===== DEFINITIVE CATEGORY MOBILE FIX ===== */
+@media (max-width:600px){
+  body{padding:0 8px 18px;overflow-x:hidden;}
+  .navbar{margin:0 -8px 10px;padding:9px 10px;min-height:62px;}
+  .logo img{width:38px;height:38px;}
+  .logo h2{font-size:19px;margin:0;}
+  .nav-icons{gap:12px;}
+  .nav-icons i{font-size:17px;}
+  .top-actions{margin:8px 0 10px;padding-left:0;}
+  .home-btn{font-size:11px;padding:7px 11px;}
+  h1{font-size:20px;line-height:1.2;margin:8px 0 5px;}
+  h1 + p{font-size:11px!important;margin:0 0 12px!important;}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .product-card{display:flex;flex-direction:column;height:auto!important;min-height:0;border-radius:11px;}
+  .img-box{height:auto!important;aspect-ratio:1/1;}
+  .icons-overlay{top:6px;right:6px;gap:5px;}
+  .icons-overlay i{width:27px;height:27px;font-size:11px;}
+  .product-card h3{min-height:30px;margin:0;padding:6px 5px 1px;font-size:10px;line-height:1.2;}
+  .price{margin:0;padding:0 5px 5px;font-size:11px;text-align:center;}
+  .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:0;padding:0 5px 6px;}
+  .btn-row button{width:100%;min-width:0;height:32px;padding:0 2px;font-size:7.7px;line-height:1;border-radius:5px;white-space:nowrap;}
+  .btn-row button i{font-size:8px;}
+}
+
 </style>
 </head>
 <body>
@@ -381,294 +466,141 @@ Premium Antique Products From ABS
 <div class="product-grid" id="products"></div>
 
 <script>
-
-const category =
-new URLSearchParams(window.location.search)
-.get("cat");
+const category = new URLSearchParams(window.location.search).get('cat') || 'idols';
 
 const data = {
-
-idols:[
-["Brass Ganesha Idol","images/ganeshaidol.jpg","₹1,999"],
-["Brass Lakshmi Idol","images/laksmi.jpg","₹2,299"],
-["Brass Krishna Idol","images/krishna idols.webp","₹2,499"],
-["Brass Shiva Idol","images/shiva.webp","₹2,799"],
-["Brass Hanuman Idol","images/hanuman.webp","₹1,899"],
-["Brass Buddha Idol","images/budha.webp","₹2,199"]
-],
-
-pooja:[
-["Brass Diya","images/diyas.jpg","₹899"],
-["Brass Kalash","images/kalash.jpg","₹799"],
-["Brass Bell","images/brassbell1.webp","₹699"],
-["Brass Pooja Thali","images/brasspojjathali.webp","₹1,499"],
-["Brass Deepam","images/deepam.webp","₹999"],
-["Brass Panchapatra","images/panchapatra.webp","₹799"]
-],
-kitchen:[
-["Brass Bowl Set","images/bowlsset.jpg","₹1,299"],
-["Brass Plates","images/kitchen.jpg","₹999"],
-["Brass Tumblers","images/tumblers.webp","₹799"],
-["Brass Water Pot","images/waterpot.webp","₹1,599"],
-["Brass Tea Pot","images/tea.jpg","₹1,299"],
-["Brass Serving Tray","images/serving.webp","₹1,799"]
-],
-
-decor:[
-["Brass Urli","images/urli.jpg","₹2,499"],
-["Brass Flower Vase","images/flowervase.webp","₹1,599"],
-["Brass Peacock","images/peacock.webp","₹2,299"],
-["Brass Elephant","images/brasselephant.webp","₹1,999"],
-["Brass Wall Decor","images/budha1.jpg","₹2,799"],
-["Brass Candle Stand","images/candleset.webp","₹1,299"]
-],
-gifts:[
-["Wedding Gift Set","images/wedding.jpg","₹2,499"],
-["Festival Gift Box","images/festi.jpg","₹1,999"],
-["Corporate Gift Set","images/corporate.webp","₹2,999"],
-["Brass Idol Gift Set","images/ganeshaidol.jpg","₹2,299"],
-["Brass Diya Gift Pack","images/diya set.jpg","₹1,499"],
-["Brass Bowl Gift Set","images/bowlsset.jpg","₹1,899"]
-],
-diyas:[
-["Single Brass Diya","images/diyas.jpg","₹499"],
-["Peacock Diya","images/peacock1.webp","₹799"],
-["Akhand Diya","images/akhand.jpg","₹999"],
-["Temple Diya","images/templediya.jpg","₹899"],
-["Hanging Diya","images/hanging.jpg","₹1,299"],
-["Designer Diya","images/designer.jpg","₹699"]
-],
+  idols:[
+    ['Brass Ganesha Idol','images/ganeshaidol.jpg','₹1,999'],
+    ['Brass Lakshmi Idol','images/laksmi.jpg','₹2,299'],
+    ['Brass Krishna Idol','images/krishna idols.webp','₹2,499'],
+    ['Brass Shiva Idol','images/shiva.webp','₹2,799'],
+    ['Brass Hanuman Idol','images/hanuman.webp','₹1,899'],
+    ['Brass Buddha Idol','images/budha.webp','₹2,199']
+  ],
+  pooja:[
+    ['Brass Diya','images/diyas.jpg','₹899'],
+    ['Brass Kalash','images/kalash.jpg','₹799'],
+    ['Brass Bell','images/brassbell1.webp','₹699'],
+    ['Brass Pooja Thali','images/brasspojjathali.webp','₹1,499'],
+    ['Brass Deepam','images/deepam.webp','₹999'],
+    ['Brass Panchapatra','images/panchapatra.webp','₹799']
+  ],
+  kitchen:[
+    ['Brass Bowl Set','images/bowlsset.jpg','₹1,299'],
+    ['Brass Plates','images/kitchen.jpg','₹999'],
+    ['Brass Tumblers','images/tumblers.webp','₹799'],
+    ['Brass Water Pot','images/waterpot.webp','₹1,599'],
+    ['Brass Tea Pot','images/tea.jpg','₹1,299'],
+    ['Brass Serving Tray','images/serving.webp','₹1,799']
+  ],
+  decor:[
+    ['Brass Urli','images/urli.jpg','₹2,499'],
+    ['Brass Flower Vase','images/flowervase.webp','₹1,599'],
+    ['Brass Peacock','images/peacock.webp','₹2,299'],
+    ['Brass Elephant','images/brasselephant.webp','₹1,999'],
+    ['Brass Wall Decor','images/budha1.jpg','₹2,799'],
+    ['Brass Candle Stand','images/candleset.webp','₹1,299']
+  ],
+  gifts:[
+    ['Wedding Gift Set','images/wedding.jpg','₹2,499'],
+    ['Festival Gift Box','images/festi.jpg','₹1,999'],
+    ['Corporate Gift Set','images/corporate.webp','₹2,999'],
+    ['Brass Idol Gift Set','images/ganeshaidol.jpg','₹2,299'],
+    ['Brass Diya Gift Pack','images/diya set.jpg','₹1,499'],
+    ['Brass Bowl Gift Set','images/bowlsset.jpg','₹1,899']
+  ],
+  diyas:[
+    ['Single Brass Diya','images/diyas.jpg','₹499'],
+    ['Peacock Diya','images/peacock1.webp','₹799'],
+    ['Akhand Diya','images/akhand.jpg','₹999'],
+    ['Temple Diya','images/templediya.jpg','₹899'],
+    ['Hanging Diya','images/hanging.jpg','₹1,299'],
+    ['Designer Diya','images/designer.jpg','₹699']
+  ],
+  bells:[
+    ['Classic Brass Bell','images/brassbell1.webp','₹699'],
+    ['Temple Brass Bell','images/bells.jpg','₹899'],
+    ['Hanging Brass Bell','images/brassbells.jpg','₹1,099'],
+    ['Decorative Brass Bell','images/brassbell1.webp','₹799'],
+    ['Pooja Hand Bell','images/bells.jpg','₹599'],
+    ['Antique Brass Bell','images/antique brass.webp','₹1,299']
+  ],
+  antique:[
+    ['Antique Brass Idol','images/antique brass.webp','₹2,499'],
+    ['Antique Brass Bell','images/brassbell1.webp','₹1,299'],
+    ['Antique Brass Urli','images/urli.jpg','₹2,799'],
+    ['Antique Brass Lamp','images/deepam.webp','₹1,999'],
+    ['Vintage Brass Pot','images/waterpot.webp','₹2,199'],
+    ['Antique Brass Decor','images/homedecor.jpg','₹2,599']
+  ]
 };
 
-document.getElementById("title").innerHTML =
-category.toUpperCase()+" PRODUCTS";
+const safeCategory = data[category] ? category : 'idols';
+document.getElementById('title').textContent = safeCategory.toUpperCase() + ' PRODUCTS';
 
-let output="";
-
-data[category].forEach(product=>{
-
-output += `
-<div class="product-card">
-
-<div class="img-box">
-
-<img src="${product[1]}" alt="${product[0]}">
-
-<div class="icons-overlay">
-
-<i class="fas fa-heart"
-onclick="addWishlist(
-'${product[0]}',
-'${product[1]}',
-'${product[2]}'
-)">
-</i>
-
-<i class="fas fa-search"></i>
-
-</div>
-
-</div>
-
-<h3>${product[0]}</h3>
-
-<p class="price">${product[2]}</p>
-
-<div class="btn-row">
-
-<button
-class="cart-btn"
-onclick="addCart(
-'${product[0]}',
-'${product[1]}',
-'${product[2]}'
-)">
-
-<i class="fas fa-shopping-cart"></i>
-
-ADD TO CART
-
-</button>
-
-<button
-class="buy-btn"
-onclick="buyNow('${product[0]}')">
-
-<i class="fas fa-bolt"></i>
-
-BUY NOW
-
-</button>
-
-</div>
-
-</div>
-`;
-
-});
-
-document.getElementById("products").innerHTML =
-output;
-
-let cartItems =
-JSON.parse(localStorage.getItem("cartItems")) || [];
-
-let wishlistItems =
-JSON.parse(localStorage.getItem("wishlistItems")) || [];
-
-updateCounts();
-
-function addCart(name,image,price){
-
-cartItems.push({
-name:name,
-image:image,
-price:price
-});
-
-localStorage.setItem(
-"cartItems",
-JSON.stringify(cartItems)
-);
-
-updateCounts();
-
-alert("Added To Cart");
-
+function getItems(key){
+  try{return JSON.parse(localStorage.getItem(key)) || [];}catch(e){return [];}
 }
-
-
-function addWishlist(name,image,price){
-
-wishlistItems.push({
-name:name,
-image:image,
-price:price
-});
-
-localStorage.setItem(
-"wishlistItems",
-JSON.stringify(wishlistItems)
-);
-
-updateCounts();
-
-event.target.classList.add("active");
-
-alert("Added To Wishlist");
-
-}
-
-
-function buyNow(product){
-
-alert(
-"Proceeding to checkout for " + product
-);
-
-}
-
+function saveItems(key,items){localStorage.setItem(key,JSON.stringify(items));}
+function numberPrice(price){return Number(String(price).replace(/[^0-9.]/g,'')) || 0;}
 function updateCounts(){
-
-document.getElementById("cartCount").innerHTML =
-cartItems.length;
-
-document.getElementById("wishlistCount").innerHTML =
-wishlistItems.length;
-
-let cartItems =
-JSON.parse(localStorage.getItem("cartItems")) || [];
-
-let wishlistItems =
-JSON.parse(localStorage.getItem("wishlistItems")) || [];
-
-document.getElementById("cartCount").innerHTML =
-cartItems.length;
-
-document.getElementById("wishlistCount").innerHTML =
-wishlistItems.length;
-
-
-}
-
-function addCart(product){
-
-let cartItems =
-JSON.parse(localStorage.getItem("cartItems")) || [];
-
-cartItems.push(product);
-
-localStorage.setItem(
-"cartItems",
-JSON.stringify(cartItems)
-);
-
-document.getElementById("cartCount").innerHTML =
-cartItems.length;
-
-alert(product + " added to cart");
-
-}
-
-function addWishlist(product){
-
-let wishlistItems =
-JSON.parse(localStorage.getItem("wishlistItems")) || [];
-
-wishlistItems.push(product);
-
-localStorage.setItem(
-"wishlistItems",
-JSON.stringify(wishlistItems)
-);
-
-document.getElementById("wishlistCount").innerHTML =
-wishlistItems.length;
-
-alert(product + " added to wishlist");
-
+  document.getElementById('cartCount').textContent=getItems('cartItems').length;
+  document.getElementById('wishlistCount').textContent=getItems('wishlistItems').length;
 }
 
 function addCart(name,image,price){
-
-let cartItems =
-JSON.parse(localStorage.getItem("cartItems")) || [];
-
-cartItems.push({
-name:name,
-image:image,
-price:price
-});
-
-localStorage.setItem(
-"cartItems",
-JSON.stringify(cartItems)
-);
-
-alert("Added To Cart");
-
+  const items=getItems('cartItems');
+  const existing=items.find(item=>item.name===name);
+  if(existing){existing.qty=(existing.qty||1)+1;}
+  else{items.push({name,image,price:numberPrice(price),qty:1});}
+  saveItems('cartItems',items);
+  updateCounts();
+  alert(name+' added to cart!');
 }
 
-function addWishlist(name,image,price){
-
-let wishlistItems =
-JSON.parse(localStorage.getItem("wishlistItems")) || [];
-
-wishlistItems.push({
-name:name,
-image:image,
-price:price
-});
-
-localStorage.setItem(
-"wishlistItems",
-JSON.stringify(wishlistItems)
-);
-
-alert("Added To Wishlist");
-
+function addWishlist(name,image,price,icon){
+  const items=getItems('wishlistItems');
+  if(!items.some(item=>item.name===name)){
+    items.push({name,image,price:numberPrice(price)});
+    saveItems('wishlistItems',items);
+    alert(name+' added to wishlist!');
+  }else{
+    alert(name+' is already in your wishlist.');
+  }
+  if(icon) icon.classList.add('active');
+  updateCounts();
 }
 
+function buyNow(name,image,price){
+  localStorage.setItem('buyNowItem',JSON.stringify({name,image,price:numberPrice(price),qty:1}));
+  window.location.href='checkout.html';
+}
+
+
+function viewProduct(name,image,price){
+  localStorage.setItem('selectedProduct',JSON.stringify({name,image,price:numberPrice(price)}));
+  window.location.href='product.html?name='+encodeURIComponent(name);
+}
+
+const products=data[safeCategory];
+document.getElementById('products').innerHTML=products.map((product,index)=>`
+  <div class="product-card" onclick="viewProduct(${JSON.stringify(product[0])},${JSON.stringify(product[1])},${JSON.stringify(product[2])})">
+    <div class="img-box">
+      <img src="${product[1]}" alt="${product[0]}">
+      <div class="icons-overlay">
+        <i class="fas fa-heart" aria-label="Add to wishlist" onclick="event.stopPropagation(); addWishlist(${JSON.stringify(product[0])},${JSON.stringify(product[1])},${JSON.stringify(product[2])},this)"></i>
+        <i class="fas fa-search" aria-label="View product" onclick="event.stopPropagation(); viewProduct(${JSON.stringify(product[0])},${JSON.stringify(product[1])},${JSON.stringify(product[2])})"></i>
+      </div>
+    </div>
+    <h3>${product[0]}</h3>
+    <p class="price">${product[2]}</p>
+    <div class="btn-row">
+      <button class="cart-btn" onclick="event.stopPropagation(); addCart(${JSON.stringify(product[0])},${JSON.stringify(product[1])},${JSON.stringify(product[2])})"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+      <button class="buy-btn" onclick="event.stopPropagation(); buyNow(${JSON.stringify(product[0])},${JSON.stringify(product[1])},${JSON.stringify(product[2])})"><i class="fas fa-bolt"></i> BUY NOW</button>
+    </div>
+  </div>`).join('');
+
+updateCounts();
 </script>
 
 
